@@ -1,0 +1,32 @@
+.half-background {
+  background-color: #282c34;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  background-image: url("../../image/bg-header.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed; /* Fixes the background image */
+  height: 45vh;
+  margin-bottom: 15px;
+}
+.header-Paragraph {
+  margin-top: -20px;
+  font-size: 20px;
+}
+.box-title {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 15px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: #a6e1e7;
+  height: 55px;
+}
+.blog-description {
+  text-align: left;
+}

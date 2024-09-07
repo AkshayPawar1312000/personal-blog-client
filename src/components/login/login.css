@@ -1,0 +1,60 @@
+.main-container {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+  }
+  .main-login-box {
+    margin-top: 25%;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 380px;
+    color: black;
+    cursor: pointer;
+    /* height: 350px; */
+    min-height: 350px;
+    height: auto;
+    text-align: left;
+    
+  }
+ 
+  .user-title {
+    height: 100px; /* Increased height to accommodate the image */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #088395;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .user-image {
+    width: 200px; /* Adjust the size as needed */
+    /* height: 200px; */
+    margin-bottom: -55px; /* Adds spacing between image and text */
+    margin-top: -100px; /* Adds spacing between image and text */
+  }
+  .all-fields-container {
+    padding: 10px;
+    /* height: 350px; */
+    height: auto;
+    /* overflow-y: auto; */
+  }
+ .fields{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  margin-top: 2px;
+ }
+ .button{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  margin-top: 15px;
+ }

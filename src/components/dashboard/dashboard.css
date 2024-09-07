@@ -1,0 +1,84 @@
+.container {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+}
+.img {
+  height: 280px;
+  width: 280px;
+}
+.admin-info {
+  text-align: left;
+}
+.sub-info {
+  margin-top: -15px;
+  font-weight: 500;
+}
+.blog-table {
+  width: 70%;
+  border-collapse: collapse;
+  margin: 5px 0;
+  font-size: 16px;
+  text-align: left;
+}
+
+.blog-table th,
+.blog-table td {
+  padding: 10px 13px;
+  border: 1px solid #ddd;
+}
+.table-container {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: -25px;
+}
+.create-blog-btn {
+  color: white;
+  background-color: #001f3f;
+  border-radius: 3px;
+  margin-right: 10px;
+  padding: 3px;
+  cursor: pointer;
+}
+.log-out-btn {
+  color: white;
+  background-color: #001f3f;
+  border-radius: 3px;
+  padding: 3px;
+  cursor: pointer;
+}
+.create-blog-btn:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+.log-out-btn:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.search-bar {
+  margin: 10px;
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: -3px;
+  gap: 5px;
+  justify-content: flex-end;
+}
+.search-bar .MuiTextField-root {
+  margin-left: auto;
+}
+.small-text-field {
+  width: 150px;
+  height: 24px;
+  padding: 2px 5px;
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 4px;
+  font-size: 12px;
+  margin-left: 10px;
+}
+
+.small-text-field:focus {
+  outline: none;
+  border-color: #ccc;
+}
