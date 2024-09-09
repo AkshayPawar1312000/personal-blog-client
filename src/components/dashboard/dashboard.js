@@ -69,7 +69,6 @@ function Dashboard() {
   };
 
   const handleChangeRowsPerPage = (event) => {
-    console.log(event.target.value)
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
@@ -178,9 +177,15 @@ function Dashboard() {
                     Sr. No
                   </StyledTableHeaderCell>
                   <StyledTableHeaderCell sx={{ width: "40%" }}>
-                    {blogSearchOpen ? (
-                      <>
-                        Blog Name
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                      }}
+                    >
+                      <span>Blog Name</span>
+                      {blogSearchOpen ? (
                         <input
                           type="text"
                           className="small-text-field"
@@ -188,11 +193,8 @@ function Dashboard() {
                           onChange={(e) =>
                             searchedFilter(e.target.value, seachedAuthor)
                           }
-                        ></input>
-                      </>
-                    ) : (
-                      <>
-                        Blog Name
+                        />
+                      ) : (
                         <IconButton
                           size="small"
                           style={{ color: "white" }}
@@ -200,13 +202,20 @@ function Dashboard() {
                         >
                           <SearchIcon style={{ fontSize: 20 }} />
                         </IconButton>
-                      </>
-                    )}
+                      )}
+                    </div>
                   </StyledTableHeaderCell>
+
                   <StyledTableHeaderCell sx={{ width: "25%" }}>
-                    {authorSearchOpen ? (
-                      <>
-                        Author Name
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                      }}
+                    >
+                      <span>Author Name</span>
+                      {authorSearchOpen ? (
                         <input
                           type="text"
                           className="small-text-field"
@@ -214,11 +223,8 @@ function Dashboard() {
                           onChange={(e) =>
                             searchedFilter(seachedBlog, e.target.value)
                           }
-                        ></input>
-                      </>
-                    ) : (
-                      <>
-                        Author Name
+                        />
+                      ) : (
                         <IconButton
                           size="small"
                           style={{ color: "white" }}
@@ -226,9 +232,10 @@ function Dashboard() {
                         >
                           <SearchIcon style={{ fontSize: 20 }} />
                         </IconButton>
-                      </>
-                    )}
+                      )}
+                    </div>
                   </StyledTableHeaderCell>
+
                   <StyledTableHeaderCell align="center" sx={{ width: "10%" }}>
                     Action
                   </StyledTableHeaderCell>
