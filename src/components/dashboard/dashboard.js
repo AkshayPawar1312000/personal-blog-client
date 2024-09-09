@@ -115,7 +115,7 @@ function Dashboard() {
 
   useEffect(() => {
     dispatch(allBlogs());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     if (blogs && blogs.length > 0) {
@@ -128,7 +128,7 @@ function Dashboard() {
       <Navbar />
       <div className="container">
         <div>
-          <img src={userImg} className="img"></img>
+          <img src={userImg} className="img" alt="User Avatar"></img>
         </div>
         <div className="admin-info">
           <h2>{user?.name}</h2>
