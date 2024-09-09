@@ -13,11 +13,8 @@
   display: flex;
   gap: 20px;
 }
-.nav-item a {
+.nav-item {
   text-decoration: none;
   color: white;
   font-size: 15px;
-}
-.nav-item a:hover {
-  color: #61dafb;
 }

@@ -15,7 +15,7 @@ function Blog() {
     if (id) {
       dispatch(getBlog(id));
     }
-  }, [id]);
+  }, [id, dispatch]);
   return (
     <>
       <Navbar />

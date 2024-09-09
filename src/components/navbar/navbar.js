@@ -19,23 +19,33 @@ function Navbar() {
   const handleLoginButton = () => {
     navigate("/login");
   };
+
   return (
     <nav className="navbar">
       <ul className="nav-links">
         <li className="nav-item">
-          <a href="" onClick={handleHomeButton}>
+          <Button
+            style={{ color: "white", textTransform: "none" }}
+            onClick={handleHomeButton}
+          >
             Home
-          </a>
+          </Button>
         </li>
         <li className="nav-item">
-          <a href="" onClick={handleDashboardButton}>
+          <Button
+            style={{ color: "white", textTransform: "none" }}
+            onClick={handleDashboardButton}
+          >
             Dashboard
-          </a>
+          </Button>
         </li>
         <li className="nav-item">
-          <a href="" onClick={handleAddNewUserButton}>
+          <Button
+            style={{ color: "white", textTransform: "none" }}
+            onClick={handleAddNewUserButton}
+          >
             Add New User
-          </a>
+          </Button>
         </li>
       </ul>
       <Button
@@ -49,7 +59,7 @@ function Navbar() {
             backgroundColor: "#088395",
           },
         }}
-      ></Button>
+      />
     </nav>
   );
 }

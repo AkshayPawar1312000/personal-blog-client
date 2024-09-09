@@ -27,7 +27,7 @@ function Home() {
     <>
       <Navbar />
       <div className="half-background">
-        <img src={img} style={{ width: 180, marginBottom: -20 }}></img>
+        <img src={img} style={{ width: 180, marginBottom: -20 }} alt="User Avatar"></img>
         <h3>Welcome to the Our Blogs..</h3>
         <p className="header-Paragraph">
           Here some blogs and tutorials contributed by Akshay.
