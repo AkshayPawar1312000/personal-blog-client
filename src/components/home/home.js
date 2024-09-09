@@ -21,7 +21,7 @@ function Home() {
   
   useEffect(() => {
     dispatch(allBlogs());
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
