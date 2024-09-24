@@ -7,31 +7,51 @@ import Grid from "@mui/material/Grid";
 import CircularProgress from "@mui/material/CircularProgress";
 import Navbar from "../navbar/navbar";
 import { TextField, InputLabel } from "@mui/material";
-import { getBlog, updateBlog } from "../../store/actions/blogActions";
+import {
+  getBlog,
+  updateBlog,
+  successMessage,
+} from "../../store/actions/blogActions";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
+import UploadIcon from "@mui/icons-material/Upload";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
+
 
 function EditBlog() {
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { id } = useParams(); 
+  const { id } = useParams();
 
   const submitLoader = useSelector((state) => state?.blog.loader);
   const blog = useSelector((state) => state?.blog.blog);
-
   const [title, setTitleName] = useState("");
   const [author, setAuthor] = useState("");
   const [blogContent, setBlogContent] = useState("");
   const [loader, setLoader] = useState(submitLoader);
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    setSelectedImage(file);
+    const meassage = {
+      message: "Image added!",
+      success: true,
+    };
+    dispatch(successMessage(meassage));
+  };
 
   const handleEditBlogButton = () => {
+    const formData = new FormData();
     const blogData = {
       title: title,
       author: author,
       blogContent: blogContent,
     };
-    dispatch(updateBlog(id, blogData, navigate));
+    formData.append("image", selectedImage);
+    formData.append("blogData", JSON.stringify(blogData));
+    dispatch(updateBlog(id, formData, navigate));
   };
 
   useEffect(() => {
@@ -42,20 +62,20 @@ function EditBlog() {
 
   useEffect(() => {
     if (blog) {
-      setTitleName(blog[0].title || "");
-      setAuthor(blog[0].author || "");
-      setBlogContent(blog[0].blogContent || "");
+      setTitleName(blog.title || "");
+      setAuthor(blog.author || "");
+      setBlogContent(blog.blogContent || "");
     }
   }, [blog]);
-  
+
   useEffect(() => {
     setLoader(submitLoader);
   }, [submitLoader]);
   return (
     <>
-    <Navbar/>
+      <Navbar />
       <div className="container">
-        <div className="box">
+        <div className="edit-blog-box">
           <div className="title">
             <h3 style={{ textAlign: "center", fontFamily: "cursive" }}>
               Edit Blog
@@ -64,7 +84,7 @@ function EditBlog() {
           <div className="fields-contaoner">
             <div className="fields">
               <Grid container spacing={2} alignItems="center">
-                <Grid item xs={6}>
+                <Grid item xs={5}>
                   <InputLabel style={{ color: "black" }}>Blog Name</InputLabel>
                   <TextField
                     fullWidth
@@ -75,7 +95,7 @@ function EditBlog() {
                     onChange={(e) => setTitleName(e.target.value)}
                   />
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={5}>
                   <InputLabel style={{ color: "black" }}>
                     Author Name
                   </InputLabel>
@@ -88,19 +108,42 @@ function EditBlog() {
                     onChange={(e) => setAuthor(e.target.value)}
                   />
                 </Grid>
+                <Grid item xs={2}>
+                  <InputLabel style={{ color: "black" }}>
+                    Upload Image
+                  </InputLabel>
+                  <input
+                    accept="image/*"
+                    style={{ display: "none" }}
+                    id="contained-button-file"
+                    type="file"
+                    onChange={handleImageChange}
+                  />
+                  <label htmlFor="contained-button-file">
+                    <Button
+                      variant="contained"
+                      component="span"
+                      fullWidth
+                      sx={{
+                        backgroundColor: "#071952",
+                        "&:hover": {
+                          backgroundColor: "#06173f",
+                        },
+                      }}
+                    >
+                      <UploadIcon />
+                    </Button>
+                  </label>
+                </Grid>
                 <Grid item xs={12}>
                   <InputLabel style={{ color: "black" }}>
                     Blog Decsription
                   </InputLabel>
-                  <TextField
-                    fullWidth
-                    placeholder="Enter a Blog decsription"
-                    name="blogDecsription"
-                    size="small"
-                    multiline
-                    rows={8}
+                   <ReactQuill
+                    theme="snow"
                     value={blogContent}
-                    onChange={(e) => setBlogContent(e.target.value)}
+                    onChange={setBlogContent}
+                    style={{ height: "270px" , borderRadius:"5px",marginBottom:30}}
                   />
                 </Grid>
                 <Grid></Grid>

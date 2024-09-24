@@ -44,7 +44,7 @@ function UserRegistration() {
           <div className="main-box">
             <div className="user-title">
               <img src={Img} alt="User" className="user-image" />
-              <h3 style={{ textAlign: "center", fontFamily: "cursive" }}>
+              <h3 style={{ textAlign: "center", fontFamily: "cursive", margin:"auto" }}>
                 User Registration
               </h3>
             </div>

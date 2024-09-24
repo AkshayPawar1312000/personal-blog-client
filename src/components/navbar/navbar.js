@@ -49,6 +49,7 @@ function Navbar() {
         </li>
       </ul>
       <Button
+      style={{width:3}}
         size="small"
         variant="contained"
         endIcon={<LogoutIcon />}

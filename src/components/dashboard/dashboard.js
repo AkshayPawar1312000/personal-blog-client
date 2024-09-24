@@ -20,6 +20,7 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import Stack from "@mui/material/Stack";
 import Navbar from "../navbar/navbar";
 import SearchIcon from "@mui/icons-material/Search";
+import CloseIcon from "@mui/icons-material/Close";
 import { styled } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
 import { allBlogs, deleteBlog, getBlog } from "../../store/actions/blogActions";
@@ -99,7 +100,12 @@ function Dashboard() {
   const handleAuthorSearchIconClick = () => {
     setAuthorSearchOpen((prev) => !prev);
   };
-
+  const handleCloseSearchBlogField = () => {
+    setBlogSearchOpen((prev) => !prev);
+  };
+  const handleCloseSearchAuthorField = () => {
+    setAuthorSearchOpen((prev) => !prev);
+  };
   // Filter function
   const searchedFilter = (searchBlog, searchAuthor) => {
     setSeachedBlog(searchBlog);
@@ -115,7 +121,7 @@ function Dashboard() {
 
   useEffect(() => {
     dispatch(allBlogs());
-  }, [dispatch]);
+  }, []);
 
   useEffect(() => {
     if (blogs && blogs.length > 0) {
@@ -135,36 +141,38 @@ function Dashboard() {
           <p className="sub-info">Full stack developer</p>
           <p className="sub-info">{user?.email}</p>
           <p className="sub-info">Total Blogs - {blogs ? blogs.length : 0}</p>
-          <Stack direction="row" spacing={2}>
-            <Button
-              size="small"
-              variant="contained"
-              endIcon={<CreateIcon />}
-              sx={{
-                backgroundColor: "#071952",
-                "&:hover": {
-                  backgroundColor: "#06173f",
-                },
-              }}
-              onClick={handleCreateBlogButton}
-            >
-              Create Blog
-            </Button>
-            <Button
-              size="small"
-              variant="contained"
-              endIcon={<LogoutIcon />}
-              sx={{
-                backgroundColor: "#071952",
-                "&:hover": {
-                  backgroundColor: "#06173f",
-                },
-              }}
-              onClick={handleLogOutButton}
-            >
-              Add new user
-            </Button>
-          </Stack>
+          <div className="both-btn">
+            <Stack direction="row" spacing={2}>
+              <Button
+                size="small"
+                variant="contained"
+                endIcon={<CreateIcon />}
+                sx={{
+                  backgroundColor: "#071952",
+                  "&:hover": {
+                    backgroundColor: "#06173f",
+                  },
+                }}
+                onClick={handleCreateBlogButton}
+              >
+                Create Blog
+              </Button>
+              <Button
+                size="small"
+                variant="contained"
+                endIcon={<LogoutIcon />}
+                sx={{
+                  backgroundColor: "#071952",
+                  "&:hover": {
+                    backgroundColor: "#06173f",
+                  },
+                }}
+                onClick={handleLogOutButton}
+              >
+                Add new user
+              </Button>
+            </Stack>
+          </div>
         </div>
       </div>
       <div className="table-container">
@@ -176,6 +184,7 @@ function Dashboard() {
                   <StyledTableHeaderCell sx={{ width: "10%" }}>
                     Sr. No
                   </StyledTableHeaderCell>
+             
                   <StyledTableHeaderCell sx={{ width: "40%" }}>
                     <div
                       style={{
@@ -186,14 +195,29 @@ function Dashboard() {
                     >
                       <span>Blog Name</span>
                       {blogSearchOpen ? (
-                        <input
-                          type="text"
-                          className="small-text-field"
-                          placeholder="Search Blog"
-                          onChange={(e) =>
-                            searchedFilter(e.target.value, seachedAuthor)
-                          }
-                        />
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "5px",
+                          }}
+                        >
+                          <input
+                            type="text"
+                            className="small-text-field"
+                            placeholder="Search Blog"
+                            style={{ flexGrow: 1 }}
+                            onChange={(e) =>
+                              searchedFilter(e.target.value, seachedAuthor)
+                            }
+                          />
+                          <ActionIcons
+                            style={{ color: "white" }}
+                            onClick={handleCloseSearchBlogField}
+                          >
+                            <CloseIcon fontSize="small" />
+                          </ActionIcons>
+                        </div>
                       ) : (
                         <IconButton
                           size="small"
@@ -216,14 +240,22 @@ function Dashboard() {
                     >
                       <span>Author Name</span>
                       {authorSearchOpen ? (
-                        <input
-                          type="text"
-                          className="small-text-field"
-                          placeholder="Search Author"
-                          onChange={(e) =>
-                            searchedFilter(seachedBlog, e.target.value)
-                          }
-                        />
+                        <>
+                          <input
+                            type="text"
+                            className="small-text-field"
+                            placeholder="Search Author"
+                            onChange={(e) =>
+                              searchedFilter(seachedBlog, e.target.value)
+                            }
+                          />
+                          <ActionIcons
+                            style={{ color: "white" }}
+                            onClick={handleCloseSearchAuthorField}
+                          >
+                            <CloseIcon fontSize="small" />
+                          </ActionIcons>
+                        </>
                       ) : (
                         <IconButton
                           size="small"

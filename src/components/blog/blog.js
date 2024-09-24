@@ -10,33 +10,37 @@ function Blog() {
   const { id } = useParams();
 
   const blog = useSelector((state) => state?.blog.blog);
+  const ContentDisplay = ({ content }) => (
+    <div
+      className="blog-paragraph"
+      dangerouslySetInnerHTML={{ __html: content }}
+    />
+  );
 
   useEffect(() => {
     if (id) {
       dispatch(getBlog(id));
     }
-  }, [id, dispatch]);
+  }, [id]);
   return (
     <>
       <Navbar />
       <div className="container">
-        {blog?.map((data, idx) => {
-          return (
-            <div className="box" key={idx}>
-              <div className="title">
-                <h3 style={{ textAlign: "left", fontFamily: "cursive" }}>
-                  {data.title}
-                </h3>
-                <p className="author-name">{`( author - ${data.author} )`}</p>
-              </div>
-              <div className="description">
-                <p className="blog-paragraph">
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.blogContent}
-                </p>
-              </div>
-            </div>
-          );
-        })}
+        <div className="blog-box">
+          <div className="title">
+            <h3 style={{ textAlign: "left", fontFamily: "cursive" }}>
+              {blog?.title}
+            </h3>
+            <p className="author-name">{`( author - ${blog?.author} )`}</p>
+          </div>
+          <div className="description">
+            <img
+              className="image"
+              src={`http://localhost:5000/images/${blog?.image}`}
+            ></img>
+            <ContentDisplay content={blog?.blogContent} />
+          </div>
+        </div>
       </div>
     </>
   );

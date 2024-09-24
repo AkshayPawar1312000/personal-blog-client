@@ -1,40 +1,104 @@
-.container {
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  flex-direction: row;
-  margin-top: 10px;
+/* Global font styling - ensure consistent size */
+body, p, h3, a {
+  font-size: inherit; /* Use inherited font-size */
 }
-.box {
-  margin-top: 5%;
+
+/* Blog Box Styling */
+.blog-box {
+  margin-top: 1%;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  width: 800px;
+  width: 100%;
+  max-width: 1200px;
   color: black;
   cursor: pointer;
-  height: 455px;
   text-align: left;
+  padding: 20px;
 }
+
+/* Blog Paragraph */
 .blog-paragraph {
   font-size: 17px;
   margin-top: -5px;
+  text-align: justify;
 }
-.title {
-  padding-top: 1px;
-  padding-bottom: 1px;
-  padding-left: 15px;
 
+/* Title */
+.title {
+  padding: 10px 15px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   background-color: #a6e1e7;
+  font-size: 18px; /* Set a fixed size */
 }
+
+/* Description */
 .description {
   padding: 10px;
-  height: 350px;
+  max-height: 450px;
   overflow-y: auto;
 }
+
+/* Author Name */
 .author-name {
   margin-top: -15px;
   font-family: Georgia, serif;
+  font-size: 14px; /* Set a fixed size */
+  text-align: left;
+}
+
+/* Image */
+.image {
+  width: 140px;
+  height: 140px;
+  float: left;
+  margin-right: 10px;
+  object-fit: cover;
+}
+
+/* Media Query for Tablets (768px and below) */
+@media (max-width: 768px) {
+  .blog-box {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .blog-paragraph {
+    font-size: 15px;
+  }
+
+  .author-name {
+    font-size: 14px;
+  }
+}
+
+/* Media Query for Mobile Devices (480px and below) */
+@media (max-width: 480px) {
+  .blog-box {
+    width: 95%;
+    padding: 10px;
+  }
+
+  .title h3 {
+    font-size: 18px;
+  }
+
+  .image {
+    width: 100px;
+    height: 100px;
+  }
+
+  .blog-paragraph {
+    font-size: 14px;
+  }
+
+  .author-name {
+    font-size: 13px;
+  }
 }

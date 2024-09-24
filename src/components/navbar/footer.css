@@ -1,4 +1,4 @@
-/* Footer Styles */
+/* Footer Styles
 .footer {
   background-color: #333;
   color: white;
@@ -29,4 +29,85 @@
 }
 .footer-item a:hover {
   color: #61dafb;
+} */
+
+
+/* Footer Styles */
+.footer {
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+.footer-text {
+  margin: 0;
+  font-size: 16px;
+}
+
+.footer-links {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.footer-item a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.footer-item a:hover {
+  color: #61dafb;
+}
+
+/* Media Query for Tablets (768px and below) */
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column; /* Stack footer items vertically */
+    align-items: center; /* Center items horizontally */
+    padding: 15px;
+  }
+
+  .footer-links {
+    gap: 15px; /* Reduce the gap between links */
+  }
+
+  .footer-item a {
+    font-size: 14px; /* Reduce font size */
+  }
+
+  .footer-text {
+    font-size: 14px; /* Reduce text size */
+    margin-bottom: 10px; /* Add some spacing between text and links */
+  }
+}
+
+/* Media Query for Mobile Devices (480px and below) */
+@media (max-width: 480px) {
+  .footer {
+    flex-direction: column; /* Stack everything vertically */
+    padding: 12px;
+  }
+
+  .footer-text {
+    font-size: 13px; /* Reduce text size further */
+    margin-bottom: 8px; /* Adjust margin */
+  }
+
+  .footer-links {
+    gap: 10px; /* Further reduce gap */
+  }
+
+  .footer-item a {
+    font-size: 13px; /* Smaller font size */
+  }
 }

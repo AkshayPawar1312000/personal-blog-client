@@ -8,7 +8,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 function Home() {
-
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -18,7 +17,14 @@ function Home() {
     const page = "blogPage";
     dispatch(getBlog(id, navigate, page));
   };
-  
+
+  const ContentDisplay = ({ content }) => (
+    <div
+      className="blog-paragraph"
+      dangerouslySetInnerHTML={{ __html: content }}
+    />
+  );
+
   useEffect(() => {
     dispatch(allBlogs());
   }, [dispatch]);
@@ -27,7 +33,11 @@ function Home() {
     <>
       <Navbar />
       <div className="half-background">
-        <img src={img} style={{ width: 180, marginBottom: -20 }} alt="User Avatar"></img>
+        <img
+          src={img}
+          style={{ width: 180, marginBottom: -20 }}
+          alt="User Avatar"
+        ></img>
         <h3>Welcome to the Our Blogs..</h3>
         <p className="header-Paragraph">
           Here some blogs and tutorials contributed by Akshay.
@@ -66,14 +76,16 @@ function Home() {
               </h3>
             </div>
             <div className="blog-description">
-              <p
+              <p 
                 style={{
-                  fontSize: "0.9em",
+                  // fontSize: "0.9em",
                   lineHeight: "1.5em",
-                  paddingLeft: 10,
+                  padding: 5,
+                  textAlign:"justify",
+                 
                 }}
               >
-                {`${blog.blogContent?.substring(0, 200)}...`}
+                {`${blog.blogContent?.replace(/<[^>]+>/g, '').substring(0, 150)}...`}
               </p>
             </div>
           </Box>

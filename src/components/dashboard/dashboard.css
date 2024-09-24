@@ -82,3 +82,50 @@
   outline: none;
   border-color: #ccc;
 }
+
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; 
+    align-items: center; 
+  }
+
+  .img {
+    height: 150px; 
+    width: 150px; 
+    margin-bottom: -50px;
+  }
+
+  .admin-info {
+    text-align: center;
+    margin: 20px 0; 
+  }
+
+  .blog-table {
+    font-size: 12px; 
+  }
+
+  .create-blog-btn,
+  .log-out-btn {
+    width: 100%; 
+    text-align: center; 
+    padding: 10px; 
+
+  }
+  .both-btn{
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .small-text-field {
+    width: 100px; 
+  }
+  .both-btn{
+    flex-direction: column;
+  }
+
+  .search-bar {
+    flex-direction: column; 
+  }
+}

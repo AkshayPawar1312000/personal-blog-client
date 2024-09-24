@@ -30,3 +30,61 @@
 .blog-description {
   text-align: left;
 }
+
+/* Media Query for Tablets (768px and below) */
+@media (max-width: 768px) {
+  .half-background {
+    font-size: calc(8px + 2vmin);
+    height: 35vh;
+  }
+
+  .header-Paragraph {
+    font-size: 18px;
+    margin-top: -15px;
+  }
+
+  .box-title {
+    height: 50px;
+    padding-left: 10px;
+  }
+
+  .blog-description {
+    font-size: 0.8em;
+    line-height: 1.3em;
+    padding-left: 8px;
+  }
+
+  .MuiBox-root {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* Media Query for Mobile Devices (480px and below) */
+@media (max-width: 480px) {
+  .half-background {
+    font-size: calc(6px + 2vmin); /*viewport minimum */
+    height: 30vh;
+  }
+
+  .header-Paragraph {
+    font-size: 16px;
+    margin-top: -10px;
+  }
+
+  .box-title {
+    height: 45px;
+    padding-left: 8px;
+  }
+
+  .blog-description {
+    font-size: 0.8em;
+    line-height: 1.3em;
+    padding-left: 6px;
+  }
+
+  .MuiBox-root {
+    width: 170px;
+    height: 170px;
+  }
+}

@@ -1,47 +1,119 @@
+ 
+ /* Container Styling */
 .container {
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    flex-direction: row;
-    margin-top: 10px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+}
+
+/* Edit Blog Box Styling */
+.edit-blog-box {
+  margin-top: 1%;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 1200px; /* Ensure responsiveness */
+  color: black;
+  cursor: pointer;
+  text-align: left;
+  padding: 20px; 
+  box-sizing: border-box;
+}
+
+/* Title Styling */
+.title {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: #a6e1e7;
+  text-align: center; 
+  font-size: 24px;
+}
+
+/* Blog Paragraph */
+.blog-paragraph {
+  font-size: 17px; 
+  text-align: justify;
+}
+
+/* Fields Container */
+.fields-contaoner {
+  padding: 10px;
+  height: 450px;
+  overflow-y: auto;
+}
+
+/* Fields Styling */
+.fields {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; 
+  gap: 10px; 
+}
+
+/* Button Styling */
+.button {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px; 
+}
+
+/* Media Query for Tablets (768px and below) */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    margin-top: 5px;
   }
-  .box {
-    margin-top: 5%;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 800px;
-    color: black;
-    cursor: pointer;
-    height: 455px;
-    text-align: left;
+
+  .edit-blog-box {
+    width: 90%; 
+    padding: 15px; 
   }
-  .blog-paragraph {
-    font-size: 17px;
-  }
+
   .title {
-    padding-top: 1px;
-    padding-bottom: 1px;
-  
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    background-color: #a6e1e7;
+    font-size: 20px; 
   }
-  .fields-contaoner {
+
+  .blog-paragraph {
+    font-size: 15px; 
+  }
+
+  .fields {
+    flex-direction: column; 
+    gap: 15px; 
+  }
+}
+
+/* Media Query for Mobile Devices (480px and below) */
+@media (max-width: 480px) {
+  .container {
+    flex-direction: column;
+    margin-top: 5px;
+  }
+
+  .edit-blog-box {
+    width: 95%; 
     padding: 10px;
-    height: 350px;
-    overflow-y: auto;
   }
- .fields{
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  flex-direction: row;
-  margin-top: 2px;
- }
- .button{
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  flex-direction: row;
- }
+
+  .title {
+    font-size: 18px; 
+  }
+
+  .blog-paragraph {
+    font-size: 14px; 
+  }
+
+  .fields {
+    flex-direction: column; 
+    gap: 20px; 
+  }
+}

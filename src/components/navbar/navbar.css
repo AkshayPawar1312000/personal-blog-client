@@ -1,20 +1,87 @@
-/* Navbar Styles */
+
+/* General Navbar Styles */
 .navbar {
   background-color: #333;
-  padding: 7px 14px;
+  padding: 10px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 .nav-links {
   list-style-type: none;
   margin: 0;
   padding: 0;
   display: flex;
-  gap: 20px;
+  gap: 30px;
 }
+
 .nav-item {
   text-decoration: none;
   color: white;
-  font-size: 15px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.MuiButton-root {
+  color: white;
+  text-transform: none;
+  font-size: 16px;
+}
+
+/* Media Query for Tablets (768px and below) */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 10px 15px;
+    flex-direction: row; 
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-direction: row; 
+    gap: 15px; 
+    width: 100%; 
+    padding-left: 0; 
+  }
+
+  .nav-item {
+    font-size: 14px; 
+    padding-left: 0; 
+  }
+
+  .MuiButton-root {
+    width: 100%; 
+    text-align: left; 
+    padding-left: 0; 
+  }
+}
+
+/* Media Query for Mobile Devices (480px and below) */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 8px 12px;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    gap: 10px; 
+    width: 100%; 
+    padding-left: 0; 
+  }
+
+  .nav-item {
+    font-size: 13px; 
+    padding-left: 0;
+  } 
+
+  .MuiButton-root {
+    width: 100%; 
+    font-size: 14px;
+    text-align: left;
+    padding-left: 0; 
+  }
+
+  .MuiButton-contained {
+    padding: 8px 12px; 
+  }
 }

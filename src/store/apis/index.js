@@ -8,7 +8,7 @@ API.interceptors.request.use((req) => {
 });
 
 // APIs Endpoints for personal blogs
-export const addBlog = (data) => API.post(`/personalBlog`, data);
+export const addBlog = (blogData) => API.post(`/personalBlog`, blogData);
 export const allBlogs = () => API.get("/personalBlogs");
 export const deleteBlog = (id) => API.delete(`/delete/${id}`);
 export const getBlog = (id) => API.get(`/personalBlog/${id}`);
